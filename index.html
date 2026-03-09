@@ -32,7 +32,8 @@
         .vbg { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: #000; }
         .vbg iframe, #ytplayer {
             position: absolute; top: 50%; left: 50%;
-            width: 300vmax; height: 300vmax;
+            width: 100vw; height: 56.25vw; /* 16:9 ratio */
+            min-height: 100vh; min-width: 177.78vh; /* inverse 16:9 */
             transform: translate(-50%, -50%);
             pointer-events: none; border: 0;
         }
@@ -247,9 +248,10 @@
 
         /* ===== MOBILE COMPLETE OVERHAUL ===== */
         @media (max-width: 768px) {
-            /* Video bg on mobile - bigger to cover vertical screens */
+            /* Video bg on mobile - taller to cover vertical screens */
             .vbg iframe, #ytplayer {
-                width: 400vmax; height: 400vmax;
+                width: 177.78vh; height: 100vh;
+                min-width: 100vw; min-height: 56.25vw;
             }
 
             /* Sections tighter */
